@@ -1,0 +1,29 @@
+﻿@using MVCKUTUPHANE.Models.Entity
+@model List<tbl_duyurular>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/ogrenciPanel.cshtml";
+}
+
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>KATEGORI</th>
+            <th>ICERIK</th>
+            <th>TARIH</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var x in Model)
+        {
+            <tr>
+                <td>@x.KATEGORI</td>
+                <td>@x.ICERIK</td>
+                <td>@x.TARİH</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

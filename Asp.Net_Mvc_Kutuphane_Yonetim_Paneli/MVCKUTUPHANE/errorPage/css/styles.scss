@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap');
+$white: #f5f5f5;
+$grey: #333;
+$font: 'Inconsolata', monospace;
+$font2: 'Space Mono', monospace;
+
+body {
+  background: $white;
+  font-family: $font2;
+}
+*{
+    box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+  color: #051d6b;
+}
+.container {
+  width: 85%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero {
+  display: grid;
+  height: 80vh;
+  align-items: center;
+  grid-template-columns: minmax(100px, 3fr) 2fr;
+  grid-auto-rows: minmax(0, 1fr);
+  place-content: center;
+  @media screen and (max-width: 768px){
+        grid-template-columns: 1fr;
+        height: auto;
+  }
+  &-image{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  &-info{
+
+  }
+}
+
+.text {
+  font-size: 1.5rem;
+  color: $grey;
+
+  &__title {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  &__header {
+    font-family: $font;
+    font-weight: 700;
+  }
+}
+
+.button{
+  display: inline-flex;
+  align-items: center;
+  background: $grey;
+  color: $white;
+  text-transform: uppercase;
+  height: 48px;
+  padding: 1.5rem;
+  margin-top: 32px;
+}

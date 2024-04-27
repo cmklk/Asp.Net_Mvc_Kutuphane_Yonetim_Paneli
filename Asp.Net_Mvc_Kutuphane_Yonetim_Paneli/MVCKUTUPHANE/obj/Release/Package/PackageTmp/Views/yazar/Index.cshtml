@@ -1,0 +1,48 @@
+﻿@using MVCKUTUPHANE.Models.Entity;
+@model List<TBL_YAZAR>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/kutuphaneLayout.cshtml";
+}
+
+<h3>YAZAR LİSTESİ</h3>
+
+
+
+@using(Html.BeginForm("Index", "yazar", FormMethod.Get))
+{
+    <div class="form-group">
+        <label>Aranacak Kişi : </label>
+        @Html.TextBox("p")
+        <input type="submit" class="btn btn-primary" value="Ara" />
+    </div>
+}
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">YAZAR ADI</th>
+            <th scope="col">YAZAR SOYADI</th>
+            <th scope="col">GÜNCELLE</th>
+            <th scope="col">SİL</th>
+            <th scope="col">YAZARIN KİTAPLARI</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.ID</td>
+                <td>@x.AD</td>
+                <td>@x.SOYAD</td>
+                <td><a href="/yazar/yazarGetir/@x.ID" class="btn btn-primary">GÜNCELLE</a></td>
+                <td>@Html.ActionLink("Sil", "yazarSil", new { id = x.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek İstiyor Musunuz ?')" })</td>
+                <td><a href="/yazar/yazarKitaplar/@x.ID" class="btn btn-default " style="background-color:lightcoral; color:white">YAZARIN KİTAPLARI</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/yazar/yazarEkle" class="btn btn-primary">YAZAR EKLE</a>

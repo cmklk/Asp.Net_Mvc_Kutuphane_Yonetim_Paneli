@@ -1,0 +1,35 @@
+﻿@using MVCKUTUPHANE.Models.Entity; <!-- Modelin içerisindeki değerlere ulaşmak için-->
+@model List<TBLKATEGORI>    
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/kutuphaneLayout.cshtml";
+}
+
+
+<h2>KATEGORİLER</h2>
+
+<table class="table  table-striped">
+    <thead>
+        <tr style="background-color:#FFC133">
+            <th scope="col">ID</th>
+            <th scope="col">KATEGORİ ADI </th>
+            <th scope="col">GÜNCELLE</th>
+            <th scope="col">SİL</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var x in Model)
+        {
+            <tr>
+                <td>@x.ID</td>
+                <td>@x.AD</td>
+                <td><a href="/kategori/kategoriGetir/@x.ID" class="btn btn-success">Güncelle <i class="bi bi-arrow-clockwise"></i> </a></td>
+                <td><a href="/kategori/kategoriSil/@x.ID" class="btn btn-danger">Sil <i class="bi bi-trash"></i></a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/kategori/kategoriEkle" class="btn btn-primary">Yeni Kategori Ekle</a>
+

@@ -1,0 +1,32 @@
+﻿@model MVCKUTUPHANE.Models.Entity.tbl_duyurular
+@{
+    ViewBag.Title = "duyuruEkle";
+    Layout = "~/Views/Shared/kutuphaneLayout.cshtml";
+}
+
+<h2>DUYURU EKLE</h2>
+
+<form class="form-group" method="post">
+    <div>
+        <label>KATEGORİ</label>
+        @Html.TextBoxFor(x => x.KATEGORI, new { @class = "form-control" })
+    </div>
+        <br />
+
+
+        <div>
+            <label>İÇERİK</label>
+            @Html.TextAreaFor(x => x.ICERIK, new { @class = "form-control" })
+        </div>
+   
+    <br>
+
+    <div>
+        <label>TARİH</label>
+        @Html.TextBoxFor(x => x.TARİH, new { @class = "form-control" })
+    </div>
+   <br />
+
+    <button class="btn btn-primary">DUYURUYU EKLE</button>
+
+</form>

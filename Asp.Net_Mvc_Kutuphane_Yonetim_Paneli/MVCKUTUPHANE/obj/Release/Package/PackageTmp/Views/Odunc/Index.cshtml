@@ -1,0 +1,39 @@
+﻿@using MVCKUTUPHANE.Models.Entity
+@model List<TBLHAREKET>
+@{
+    ViewBag.Title = "OduncKitap";
+    Layout = "~/Views/Shared/kutuphaneLayout.cshtml";
+}
+
+<h2>ÖDÜNÇ KİTAP LİSTESİ</h2>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">KİTAP</th>
+            <th scope="col">ÜYE</th>
+            <th scope="col">PERSONEL</th>
+            <th scope="col">ALIŞ TARİHİ</th>
+            <th scope="col">İADE TARİHİ</th>
+            <th scope="col">KİTABI İADE ET</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.ID</td>
+                <td>@x.TBLKITAP.AD</td>
+                <td>@x.TBL_UYE.AD &nbsp; @x.TBL_UYE.SOYAD</td>
+                <td>@x.TBLPERSONEL.PERSONEL</td>
+                <td>@Convert.ToDateTime(x.ALISTARIH).ToString("dd/MM/yyyy")</td>
+                <td>@Convert.ToDateTime(x.IADETARIH).ToString("dd/MM/yyyy")</td>
+                <td><a href="/Odunc/oduncIadeGetir/@x.ID" class="btn btn-default" style="background-color:#64d8ca; color:#fff; outline:none; border:none">Kitabı İade Et</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

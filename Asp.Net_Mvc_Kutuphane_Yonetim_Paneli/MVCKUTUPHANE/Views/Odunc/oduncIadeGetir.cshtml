@@ -1,0 +1,71 @@
+﻿@model MVCKUTUPHANE.Models.Entity.TBLHAREKET
+@{
+    ViewBag.Title = "oduncIadeGetir";
+    Layout = "~/Views/Shared/kutuphaneLayout.cshtml";
+}
+
+<h2>İADE BİLGİLERİ</h2>
+
+@using (Html.BeginForm("oduncGuncelle", "Odunc", FormMethod.Post))
+{
+    <div>
+        <label>HAREKET ID</label>
+        @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+    </div>
+
+    <br />
+
+    <div>
+        <label>KİTAP ADI</label>
+        @Html.TextBoxFor(x => x.TBLKITAP.AD, new { @class = "form-control" })
+    </div>
+
+    <br />
+
+    <div>
+        <label>ÜYE ADI</label>
+        @Html.TextBoxFor(x => x.TBL_UYE.AD, new { @class = "form-control" })
+    </div>
+
+    <br />
+
+
+    <div>
+        <label>PERSONEL</label>
+        @Html.TextBoxFor(x => x.TBLPERSONEL.PERSONEL, new { @class = "form-control" })
+    </div>
+
+    <br />
+
+
+    <div>
+        <label>ALIŞ TARİHİ</label>
+        @Html.TextBoxFor(x => x.ALISTARIH, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+    </div>
+
+    <br />
+
+
+    <div>
+        <label>NORMAL İADE TARİHİ</label>
+        @Html.TextBoxFor(x => x.IADETARIH, "{0: dd.MM.yyyy}" , new { @class = "form-control" })
+    </div>
+
+    <br />
+
+    <div>
+        <label>ÜYENİN GETİRDİĞİ TARİH</label>
+        <input type="text" class="form-control" name="UYEGETIRTARIH" value="@DateTime.Now.ToShortDateString()" />
+    </div>
+
+    <br />
+
+
+    <div>
+        <label>GEÇ GELEN GÜN SAYISI</label>
+        <input type="text" class="form-control" id="gecInput" value="@ViewBag.dgr" />
+    </div>
+    <br />
+    <button class="btn btn-warning">KİTABI GERİ AL</button>
+}
+

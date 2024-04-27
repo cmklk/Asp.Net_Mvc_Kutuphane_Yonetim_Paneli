@@ -1,0 +1,43 @@
+﻿@using MVCKUTUPHANE.Models.Entity;
+@model List<TBLPERSONEL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/kutuphaneLayout.cshtml";
+}
+
+<h2>PERSONEL LİSTESİ</h2>
+
+@using (Html.BeginForm("Index", "personel", FormMethod.Get))
+{
+    <div class="form-group">
+        <label>Aranacak Kişiyi Yazın</label>
+        @Html.TextBox("p")
+        <input type="submit" class="btn btn-primary" value="Ara" />
+    </div>
+}
+
+
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">PERSONEL</th>
+            <th scope="col">GÜNCELLE</th>
+            <th scope="col">SİL</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var x in Model)
+        {
+            <tr>
+                <td>@x.ID</td>
+                <td>@x.PERSONEL</td>
+                <td><a href="/personel/personelVeriGetir/@x.ID" class="btn btn-success">GÜNCELLE</a></td>
+                <td>@Html.ActionLink("SİL","personelSil",new { id=x.ID} ,new {@class="btn btn-danger", onclick="return confirm('Personeli Silmek İstiyor Musunuz')"})</td>
+            </tr>
+        }
+    </tbody>
+</table> 
+<a href="/personel/personelEkle" class="btn btn-primary">YENİ PERSONEL EKLE</a>

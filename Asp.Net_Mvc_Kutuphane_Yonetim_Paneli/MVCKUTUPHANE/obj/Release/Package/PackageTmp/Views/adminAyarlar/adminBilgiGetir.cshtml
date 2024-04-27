@@ -1,0 +1,27 @@
+﻿@model MVCKUTUPHANE.Models.Entity.tbl_admin
+@{
+    ViewBag.Title = "adminBilgiGetir";
+    Layout = "~/Views/Shared/kutuphaneLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("adminGuncelle", "adminAyarlar", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.ID)
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.KULLANICIADI)
+    @Html.TextBoxFor(x => x.KULLANICIADI, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ŞİFRE)
+    @Html.TextBoxFor(x => x.ŞİFRE, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.YETKİ)
+    @Html.TextBoxFor(x => x.YETKİ, new { @class = "form-control" })
+
+
+    <br />
+
+    <button class="btn btn-warning">BİLGİLERİ GÜNCELLE</button>
+}
+

@@ -1,0 +1,94 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 190px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 16px;
+        }
+
+            .sidebar a {
+                padding: 6px 8px 6px 16px;
+                text-decoration: none;
+                font-size: 16px;
+                color: #818181;
+                display: block;
+            }
+
+                .sidebar a:hover {
+                    color: blue;
+                }
+
+        .main {
+            margin-left: 190px; /* Same as the width of the sidenav */
+            padding: 0px 10px;
+        }
+
+        @@media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+                .sidebar a {
+                    font-size: 18px;
+                }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <a href="#"> <i class="glyphicon glyphicon-home"></i>&nbsp; Ana Sayfa</a>
+        <a href="/kategori/Index"> <i class="glyphicon glyphicon-list"></i>&nbsp; Kategoriler</a>
+        <a href="/kitaplar/Index"> <i class="glyphicon glyphicon-book"></i>&nbsp; Kitaplar</a>
+        <a href="/yazar/Index"> <i class="glyphicon glyphicon-pencil"></i>&nbsp; Yazarlar</a>
+        <a href="/uye/Index"> <i class="glyphicon glyphicon-user"></i>&nbsp; Üyeler</a>
+        <a href="/personel/Index"> <i class="glyphicon glyphicon-tower"></i>&nbsp; Personeller</a>
+        @if (User.IsInRole("A"))
+        {
+        <a href="/Odunc/oduncVer"> <i class="glyphicon glyphicon-circle-arrow-right"></i>&nbsp; Ödünç Kitap Ver</a>
+        <a href="/Odunc/Index"> <i class="glyphicon glyphicon-circle-arrow-left"></i>&nbsp; Ödünç Kitap Al</a>
+        }
+        <a href="/istatistik/Index"> <i class="glyphicon glyphicon-education"></i>&nbsp; İstatistikler</a>
+        <a href="/istatistik/linqKartlar"> <i class="glyphicon glyphicon-bookmark"></i>&nbsp; Linq Kartlar</a>
+        <a href="/istatistik/hava"> <i class="glyphicon glyphicon-cloud"></i>&nbsp; Hava Durumu</a>
+        <a href="/duyurular/Index"> <i class="glyphicon glyphicon-phone"></i>&nbsp;DUYURULAR</a>
+        <a href="/islemler/Index"> <i class="glyphicon glyphicon-dashboard"></i>&nbsp; İşlemler</a>
+        <a href="#"> <i class="glyphicon glyphicon-dashboard"></i>&nbsp; Galeri</a>
+        <a href="/Vitrin/Vitrin"> <i class="glyphicon glyphicon-dashboard"></i>&nbsp; Vitrin</a>
+        <a href="/Chart/Index"> <i class="glyphicon glyphicon-dashboard"></i>&nbsp; Grafikler</a>
+        <a href="/adminAyarlar/Index"> <i class="glyphicon glyphicon-cog"></i>&nbsp; Ayarlar</a>
+        <a href="#"> <i class="glyphicon glyphicon-phone"></i>&nbsp; Yardım</a>
+        <a href="/adminLogin/adminCikisYap"> <i class="glyphicon glyphicon-remove-sign"></i>&nbsp; Çıkış</a>
+    </div>
+
+    <div class="main">
+        <div class="container">
+            <br />
+            @RenderBody()
+        </div>
+    </div>
+
+</body>
+</html>

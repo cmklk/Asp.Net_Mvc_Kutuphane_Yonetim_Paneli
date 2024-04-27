@@ -1,0 +1,62 @@
+﻿@model MVCKUTUPHANE.Models.Entity.TBLKITAP
+@{
+    ViewBag.Title = "kitapVeriGetir";
+    Layout = "~/Views/Shared/kutuphaneLayout.cshtml";
+}
+
+<h2>KİTAP GÜNCELLEME ALANI</h2>
+
+@using (Html.BeginForm("kitapGuncelle", "kitaplar", FormMethod.Post))
+{
+    <div>
+      <label>KİTAP ID</label>
+        @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+    </div>
+    <br />
+
+
+    <div>
+        <label>KİTAP ADI</label>
+        @Html.TextBoxFor(x => x.AD, new { @class = "form-control" })
+    </div>
+    <br />
+
+    <div>
+        <label>KATEGORİ ADI</label>
+        @Html.DropDownListFor(x => x.TBLKATEGORI.ID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+    </div>
+    <br />
+
+    <div>
+       <label>YAZAR</label>
+        @Html.DropDownListFor(x => x.TBL_YAZAR.ID,(List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    </div>
+    <br />
+
+  
+    <div>
+       <label>BASIM YILI</label>
+        @Html.TextBoxFor(x => x.BASIMYILI, new { @class = "form-control" })
+    </div>
+    <br />
+
+    <div>
+       <label>YAYINEVİ</label>
+        @Html.TextBoxFor(x => x.YAYINEVI, new { @class = "form-control" })
+    </div>
+    <br />
+
+    <div>
+       <label>SAYFA SAYISI</label>
+        @Html.TextBoxFor(x => x.SAYFA, new { @class = "form-control" })
+    </div>
+    <br />
+
+
+    <div>
+        <button class="btn btn-warning">KİTAP BİLGİLERİNİ GÜNCELLE</button>
+    </div>
+
+
+}
+

@@ -1,0 +1,50 @@
+﻿@model MVCKUTUPHANE.Models.Entity.TBLHAREKET
+@{
+    ViewBag.Title = "oduncVer";
+    Layout = "~/Views/Shared/kutuphaneLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label>ÜYE ID</label>
+        @Html.DropDownListFor(x => x.TBL_UYE.ID, (List<SelectListItem>)ViewBag.uyeBilgi, new { @class = "form-control" })
+    </div>
+
+    <br />
+
+    <div>
+        <label>KITAP ID</label>
+        @Html.DropDownListFor(x => x.TBLKITAP.ID, (List<SelectListItem>)@ViewBag.ktp, new { @class = "form-control" })
+    </div>
+
+    <br />
+
+
+
+    <div>
+        <label>PERSONEL ID</label>
+        @Html.DropDownListFor(x => x.TBLPERSONEL.ID,(List<SelectListItem>)ViewBag.personel, new { @class = "form-control" })
+    </div>
+
+    <br />
+
+    <div>
+        <label>ALIŞ TARİHİ</label>
+        <input type="text" class="form-control" name="ALISTARIH" value="@DateTime.Now.ToShortDateString()" />
+    </div>
+
+    <br />
+
+    <div>
+        <label>İADE TARİHİ</label>
+        <input type="text" class="form-control" name="IADETARIH" value="@DateTime.Now.AddDays(7).ToShortDateString()" /> 
+    </div>
+
+    <br />
+
+    <div>
+        <button class="btn btn-primary">Kitabı Ödünç Ver</button>
+    </div>
+
+    <input type="hidden" value="False" name="ISLEMDURUM" />
+</form>

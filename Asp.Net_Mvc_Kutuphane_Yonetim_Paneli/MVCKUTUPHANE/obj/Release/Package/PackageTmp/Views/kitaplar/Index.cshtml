@@ -1,0 +1,57 @@
+﻿
+@using MVCKUTUPHANE.Models.Entity
+@model List<TBLKITAP>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/kutuphaneLayout.cshtml";
+}
+<h2>KİTAPLAR SAYFASI</h2>
+
+@using (Html.BeginForm("Index", "kitaplar", FormMethod.Get))
+{
+
+    <div class="form-group" style="margin-bottom:15px; margin-top:15px;">
+        <label>Aranacak Kitabın Adını Girin</label>
+        @Html.TextBox("p")
+        <input type="submit" value="ara" />
+    </div>
+}
+
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">KİTAP ADI</th>
+            <th scope="col">KİTAP YAZARI</th>
+            <th scope="col">KATEGORİ</th>
+            <th scope="col">BASIM YILI</th>
+            <th scope="col">YAYINEVİ</th>
+            <th scope="col">SAYFA</th>
+            <th scope="col">DURUM</th>
+            <th scope="col">SİL</th>
+            <th scope="col">GÜNCELLE</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.ID</td>
+                <td>@x.AD</td>
+                <td>@x.TBL_YAZAR.AD &nbsp; @x.TBL_YAZAR.SOYAD</td>
+                <td>@x.TBLKATEGORI.AD</td>
+                <td>@x.BASIMYILI</td>
+                <td>@x.YAYINEVI</td>
+                <td>@x.SAYFA</td>
+                <td>@x.DURUM</td>
+                <td><a href="/kitaplar/kitapVeriGetir/@x.ID" class="btn btn-primary">GÜNCELLE</a></td>
+                <td><a href="/kitaplar/KitapSil/@x.ID" class="btn btn-danger">SİL</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/kitaplar/kitapEkle/" class="btn btn-primary">Yeni Kitap Ekle</a>

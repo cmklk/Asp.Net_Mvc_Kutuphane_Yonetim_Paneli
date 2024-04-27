@@ -1,0 +1,36 @@
+﻿@using MVCKUTUPHANE.Models.Entity
+@model List<tbl_duyurular>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/kutuphaneLayout.cshtml";
+}
+
+<h2>DUYURU PANELİ</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>KATEGORİ</th>
+            <th>TARİH</th>
+            <th>SİL</th>
+            <th>DETAYLAR</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var x in Model)
+        {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.KATEGORI</td>
+            <td>@Convert.ToDateTime(x.TARİH).ToString("dd/MM/yyyy")</td>
+            <td><a href="/duyurular/duyuruSil/@x.ID" class="btn btn-danger">SİL</a></td>
+            <td><a href="/duyurular/duyuruGetir/@x.ID" class="btn btn-primary">DETAYLAR</a></td>
+        </tr>
+        }
+
+        
+    </tbody>
+</table>
+<a href="/duyurular/duyuruEkle" class="btn btn-primary">YENİ DUYURU EKLE</a>

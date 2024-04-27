@@ -1,0 +1,29 @@
+﻿@model MVCKUTUPHANE.Models.Entity.TBL_YAZAR
+@{
+    ViewBag.Title = "yazarEkle";
+    Layout = "~/Views/Shared/kutuphaneLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label>YAZAR ADI</label>
+        @Html.TextBoxFor(x=>x.AD, new {@class="form-control"})
+        @Html.ValidationMessageFor(x=>x.AD)
+    </div>
+    <div style="margin-top:15px;">
+        <label>YAZAR SOYADI</label>
+        @Html.TextBoxFor(x=>x.SOYAD, new {@class="form-control"})
+        @Html.ValidationMessageFor(x=>x.SOYAD)
+    </div>
+
+    <div style="margin-top:15px;">
+        <label>DETAY</label>
+        @Html.TextAreaFor(x=>x.DETAY, new {@class="form-control"})
+    </div>
+    <br />
+    <div style="margin-top:15px;">
+        <button class="btn btn-primary">YAZAR EKLE</button>
+    </div>
+   
+</form>
+

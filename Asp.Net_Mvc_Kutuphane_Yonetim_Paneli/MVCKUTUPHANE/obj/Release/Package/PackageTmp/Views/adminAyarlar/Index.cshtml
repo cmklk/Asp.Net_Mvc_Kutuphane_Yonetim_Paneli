@@ -1,0 +1,66 @@
+﻿ @using MVCKUTUPHANE.Models.Entity
+@model List<tbl_admin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/kutuphaneLayout.cshtml";
+}
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>KULLANICI</th>
+            <th>YETKİ</th>
+            <th>DURUM</th>
+            <th>SİL</th>
+            <th>DÜZENLE</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var x in Model)
+        {
+            <tr>
+                <td>@x.ID</td>
+                <td>@x.KULLANICIADI</td>
+                <td>@x.YETKİ</td>
+                <td><a href="#" class="btn btn-success">SUCCESS</a></td>
+                <td><a href="/adminAyarlar/adminSil/@x.ID" class="btn btn-danger">SİL <i class="bi bi-trash3"></i> </a></td>
+                <td><a href="/adminAyarlar/adminBilgiGetir/@x.ID" class="btn btn-warning">GÜNCELLE <i class="bi bi-arrow-clockwise"></i></a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button class="btn btn-primary" data-toggle="modal" data-target="#modal1">YENİ ADMİN EKLE</button>
+
+
+<div class="modal" id="modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="text-center modal-title">YENİ ADMİN EKLEME PANELİ</h3>
+            </div>
+
+              <form action="/adminAyarlar/yeniAdmin" method="post">
+                  <div class="modal-body">
+                      <label>KULLANICI ADI</label>
+                      <input type="text" class="form-control" name="KULLANICIADI" />
+                      <br />
+
+                      <label>ŞİFRE</label>
+                      <input type="text" class="form-control" name="ŞİFRE" />
+                      <br />
+
+                      <label>YETKİ</label>
+                      <input type="text" class="form-control"  name="YETKİ"/>
+
+                      <br />
+
+                      <button class="btn btn-info">BİLGİLERİ KAYDET</button>
+                  </div>
+              </form>
+        </div>
+    </div>
+</div>

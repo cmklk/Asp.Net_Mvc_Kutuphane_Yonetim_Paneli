@@ -1,0 +1,23 @@
+﻿@model MVCKUTUPHANE.Models.Entity.TBLKATEGORI  
+    <!-- model aracılığıyla ilgili tabloma ulaştım-->
+@{
+    ViewBag.Title = "kategoriEkle";
+    Layout = "~/Views/Shared/kutuphaneLayout.cshtml";
+}
+
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px;">
+        <label>KATEGORİ ADI </label>
+        <br />
+        @Html.TextBoxFor(x=>x.AD, new {@class="form-control"})
+        @Html.ValidationMessageFor(x=>x.AD)
+    </div>
+
+    <div style="margin-top:15px;">
+        <button class="btn btn-primary">KATEGORİ EKLE</button>
+    </div>
+   
+</form>
+

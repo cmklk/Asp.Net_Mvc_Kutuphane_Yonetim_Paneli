@@ -1,0 +1,30 @@
+﻿@model MVCKUTUPHANE.Models.Entity.TBLPERSONEL
+@{
+    ViewBag.Title = "personelVeriGetir";
+    Layout = "~/Views/Shared/kutuphaneLayout.cshtml";
+}
+
+<h2>PERSONEL GÜNCELLEME PANELİ</h2>
+
+
+@using (Html.BeginForm("personelGuncelle", "personel", FormMethod.Post))
+{
+   <div>
+       <label>PERSONEL ID </label>
+       @Html.TextBoxFor(x=>x.ID, new {@class="form-control"})
+   </div>
+
+   <br />
+
+   <div>
+       <label>Personel Ad - Soyad</label>
+       @Html.TextBoxFor(x=>x.PERSONEL, new {@class="form-control"})
+   </div>
+
+   <br />
+
+   <div>
+       <button class="btn btn-warning">PERSONEL BİLGİLERİNİ GÜNCELLE</button>
+   </div>
+}
+
